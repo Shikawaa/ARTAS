@@ -1,17 +1,21 @@
 import React, { Component } from "react";
 import "./Table.css";
 
+const TableHeader = () => {
+  <thead>
+    <tr>
+      <th>Réponse</th>
+      <th>Question</th>
+    </tr>
+  </thead>;
+};
+
 class Table extends Component {
   render() {
     return (
       <div className="Table">
         <table>
-          <thead>
-            <tr>
-              <th>Réponse</th>
-              <th>Question</th>
-            </tr>
-          </thead>
+          <TableHeader />
           <tbody>
             <tr>
               <td>feur</td>
