@@ -3,6 +3,24 @@ import Table from "./Table";
 
 class Test extends Component {
   render() {
+    const dataToPass = [
+      {
+        answer: "Feur",
+        question: "Quoi ?",
+      },
+      {
+        answer: "Coubeh",
+        question: "Quoi ?",
+      },
+      {
+        answer: "dant de bord",
+        question: "Comment ?",
+      },
+      {
+        answer: "Ganda",
+        question: "Ou ?",
+      },
+    ];
     return (
       <div className="Test">
         <h1>Les différents types de feurs.</h1>
