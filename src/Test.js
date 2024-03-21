@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import Table from "./Table";
 
 class Test extends Component {
-  render() {
-    const dataToPass = [
+  state = {
+    dataToPass: [
       {
         name: "Star Wars",
         type: "Science-Fiction",
@@ -16,12 +16,25 @@ class Test extends Component {
         name: "Avengers",
         type: "Action",
       },
-    ];
+    ],
+  };
+  removeRow = (index) => {
+    const { dataToPass } = this.state;
+
+    this.setState({
+      dataToPass: dataToPass.filter((currentData, i) => {
+        return i !== index;
+      }),
+    });
+  };
+
+  render() {
+    const { dataToPass } = this.state;
     return (
       <div className="Test">
         <div ClassName="Test">
           <h1>Catégories de films</h1>
-          <Table tableContent={dataToPass} />
+          <Table tableContent={dataToPass} removeRow={this.removeRow} />
         </div>
       </div>
     );

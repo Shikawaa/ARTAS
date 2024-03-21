@@ -1,18 +1,5 @@
 import React, { Component } from "react";
 
-const TableBody = (props) => {
-  const rows = props.tableContent.map((row, index) => {
-    return (
-      <tr key={index}>
-        <td>{row.name}</td>
-        <td>{row.type}</td>
-      </tr>
-    );
-  });
-
-  return <tbody>{rows}</tbody>;
-};
-
 const TableHeader = () => {
   return (
     <thead>
@@ -23,13 +10,30 @@ const TableHeader = () => {
     </thead>
   );
 };
+
+const TableBody = (props) => {
+  const rows = props.tableContent.map((row, index) => {
+    return (
+      <tr key={index}>
+        <td>{row.name}</td>
+        <td>{row.type}</td>
+        <td>
+          <button onClick={() => props.removeRow(index)}>Delete</button>
+        </td>
+      </tr>
+    );
+  });
+
+  return <tbody>{rows}</tbody>;
+};
+
 class Table extends Component {
   render() {
-    const { tableContent } = this.props;
+    const { tableContent, removeRow } = this.props;
     return (
       <table>
         <TableHeader />
-        <TableBody tableContent={tableContent} />
+        <TableBody tableContent={tableContent} removeRow={removeRow} />
       </table>
     );
   }
