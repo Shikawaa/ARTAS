@@ -3,18 +3,14 @@ import Submit from "./Submit";
 
 const QuizTableHeader = (props) => {
   return (
-    <div>
-      <h3>Le fameux quiz de film !</h3>
-      <p>Êtes-vous prêt ?</p>
-      <Submit />
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Type</th>
-          <th>Release date</th>
-        </tr>
-      </thead>
-    </div>
+    <thead>
+      <tr>
+        <th>Movie name</th>
+        <th>Type</th>
+        <th>Release date</th>
+        <th>Director</th>
+      </tr>
+    </thead>
   );
 };
 
@@ -22,8 +18,13 @@ const QuizTableBody = (props) => {
   const rows = props.quizTest.map((row, index) => {
     return (
       <tr key={index}>
-        <td>{row.name}</td>
+        <td>{row.movie}</td>
         <td>{row.type}</td>
+        <td>{row.releaseDate}</td>
+        <td>{row.director}</td>
+        <td>
+          <button onClick={() => props.removeRow(index)}>Delete</button>
+        </td>
       </tr>
     );
   });
@@ -32,11 +33,13 @@ const QuizTableBody = (props) => {
 
 class Quiz extends Component {
   render() {
-    const { quizTest } = this.props;
+    const { quizTest, removeRow } = this.props;
     return (
-      <div>
-        <QuizTableBody quizTest={quizTest} />
-      </div>
+      <table>
+        <QuizTableHeader />
+        <QuizTableBody quizTest={quizTest} removeRow={removeRow} />
+        <Submit />
+      </table>
     );
   }
 }
