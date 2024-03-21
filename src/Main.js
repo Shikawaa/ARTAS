@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Quiz from "./Quiz";
 
-class Boss extends Component {
+class Main extends Component {
   render() {
     const dataToPass = [
       {
@@ -34,4 +34,4 @@ class Boss extends Component {
   }
 }
 
-export default Boss;
+export default Main;
