@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import Table from "./Table";
+import OMDbapi from "./Api";
+import Inpput from "./Quiz";
 
 class Test extends Component {
   render() {
@@ -23,13 +25,14 @@ class Test extends Component {
     ];
     return (
       <div className="Test">
+        <OMDbapi />
         <h1>Les différents types de feurs.</h1>
         <p>
           En cas de manque d'inspiration pour répondre à un quoi, quand, ou,
           comment ou autre question débile, n'hésitez pas à vous referer à cette
           source.
         </p>
-        <Table />
+        <Table tableContent={dataToPass} />
       </div>
     );
   }

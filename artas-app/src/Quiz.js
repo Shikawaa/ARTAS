@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import "./Table.css";
 
 const TableHeader = () => {
   return (
@@ -25,18 +24,14 @@ const TableBody = (props) => {
   return <tbody>{rows}</tbody>;
 };
 
-class Table extends Component {
+class AnswerInput extends Component {
   render() {
-    const { tableContent } = this.props;
     return (
-      <div className="Table">
-        <table>
-          <TableHeader />
-          <TableBody tableContent={tableContent} />
-        </table>
+      <div className="AnswerInput">
+        <input id="answer" type="text" name="answer"></input>
       </div>
     );
   }
 }
 
-export default Table;
+export default AnswerInput;
