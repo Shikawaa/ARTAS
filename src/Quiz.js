@@ -1,42 +1,45 @@
 import React, { Component } from "react";
-import Submit from "./Submit";
 
-const QuizTableHeader = (props) => {
+const QuizHeader = () => {
   return (
-    <div>
-      <h3>Le fameux quiz de film !</h3>
-      <p>Êtes-vous prêt ?</p>
-      <Submit />
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Type</th>
-          <th>Release date</th>
-        </tr>
-      </thead>
-    </div>
+    <thead>
+      <tr>
+        <th>Film</th>
+        <th>Catégories</th>
+      </tr>
+    </thead>
   );
 };
 
-const QuizTableBody = (props) => {
-  const rows = props.quizTest.map((row, index) => {
+const QuizBody = (props) => {
+  const rows = props.tableContent.map((row, index) => {
     return (
       <tr key={index}>
         <td>{row.name}</td>
         <td>{row.type}</td>
+        <td>{props.movie.Released}</td>
+        <td>
+          <button onClick={() => props.removeRow(index)}>Delete</button>
+        </td>
       </tr>
     );
   });
+
   return <tbody>{rows}</tbody>;
 };
 
 class Quiz extends Component {
   render() {
-    const { quizTest } = this.props;
+    const { QuizContent, removeRow, movie } = this.props;
     return (
-      <div>
-        <QuizTableBody quizTest={quizTest} />
-      </div>
+      <Quiz>
+        <QuizHeader />
+        <QuizBody
+          tableContent={tableContent}
+          removeRow={removeRow}
+          movie={movie}
+        />
+      </Quiz>
     );
   }
 }

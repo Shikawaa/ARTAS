@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import Table from "./Table";
+import OmdbApi from "./OMDBApi";
 
 export default function FunctionalTest() {
   const [dataToPass, setDataToPass] = useState([
     {
-      name: "Star Wars",
+      name: "Star Wars I",
+      date: "1977",
       type: "Science-Fiction",
     },
     {
@@ -27,10 +29,9 @@ export default function FunctionalTest() {
 
   return (
     <div className="Test">
-      <div ClassName="Test">
-        <h1>Catégories de films</h1>
-        <Table tableContent={dataToPass} removeRow={removeRow} />
-      </div>
+      <OmdbApi />
+      <h1>Catégories de films</h1>
+      <Table tableContent={dataToPass} removeRow={removeRow} />
     </div>
   );
 }

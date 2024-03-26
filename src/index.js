@@ -1,8 +1,5 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import Test from "./Test";
-import Main from "./Main";
-import "./index.css";
+import Quiz from "./Quizz";
 
-ReactDOM.render(<Test />, document.getElementById("root"));
-
+ReactDOM.render(<Quiz />, document.getElementById("root"));
