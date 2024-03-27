@@ -5,8 +5,8 @@ const TableHeader = () => {
   return (
     <thead>
       <tr>
-        <th>Réponse</th>
         <th>Question</th>
+        <th>Réponse</th>
       </tr>
     </thead>
   );
@@ -18,25 +18,25 @@ const TableBody = (props) => {
       <tr key={index}>
         <td>{row.question}</td>
         <td>{row.answer}</td>
+        <td>
+          <button onClick={() => props.removeRow(index)}>Delete</button>
+        </td>
       </tr>
     );
   });
-
   return <tbody>{rows}</tbody>;
 };
 
-class Table extends Component {
-  render() {
-    const { tableContent } = this.props;
-    return (
-      <div className="Table">
-        <table>
-          <TableHeader />
-          <TableBody tableContent={tableContent} />
-        </table>
-      </div>
-    );
-  }
+export default function TableFunction(props) {
+  return (
+    <div className="Table">
+      <table>
+        <TableHeader />
+        <TableBody
+          tableContent={props.tableContent}
+          removeRow={props.removeRow}
+        />
+      </table>
+    </div>
+  );
 }
-
-export default Table;

@@ -3,7 +3,7 @@ const { API_KEY } = require("./config.json");
 
 class OMDbapi extends Component {
   state = {
-    data: [],
+    movieData: [],
   };
   componentDidMount() {
     console.log(API_KEY);

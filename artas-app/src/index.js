@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import TestComponent from "./Test";
+import AnswerInput from "./AnswerInput";
 import "./index.css";
 
-ReactDOM.render(<TestComponent />, document.getElementById("root"));
+ReactDOM.render(<AnswerInput />, document.getElementById("root"));
