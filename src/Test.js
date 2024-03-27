@@ -25,12 +25,21 @@ export default function FunctionalTest() {
     );
   };
 
-  return (
-    <div className="Test">
-      <div ClassName="Test">
-        <h1>Catégories de films</h1>
-        <Table tableContent={dataToPass} removeRow={removeRow} />
+  render() {
+    const { dataToPass, indice1 } = this.state;
+    let indice1Text;
+    if (indice1) {
+      indice1Text = <div>Ce film est réalisé par {movieData.Director}</div>;
+    } else {
+      indice1Text = <div>Cet indice est caché</div>;
+    }
+  
+    return (
+      <div className="Test">
+        <h1>Saucisse</h1>
+        {indice1Text}
+        <Table tableContent={dataToPass} removeRow={this.removeRow} />
       </div>
-    </div>
-  );
-}
+    );
+  }
+};
