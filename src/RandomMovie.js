@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+const { API_KEY } = require("./config.json");
 
 const MovieSelector = () => {
   const MovieCodes = [
@@ -109,7 +110,7 @@ const MovieSelector = () => {
       const RandomIndex = Math.floor(Math.random() * MovieCodes.length);
       const RandomMovieCode = MovieCodes[RandomIndex];
       const Response = await fetch(
-        `http://www.omdbapi.com/?apikey=1316e5ed&i=${RandomMovieCode}`
+        `http://www.omdbapi.com/?apikey=${API_KEY}&i=${RandomMovieCode}`
       );
       const MovieData = await Response.json();
 
