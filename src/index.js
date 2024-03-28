@@ -1,5 +1,5 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import Main from "./Main";
+import MovieAPI from "./DataAPI";
 
-ReactDOM.render(<Main />, document.getElementById("root"));
+ReactDOM.render(<MovieAPI />, document.getElementById("root"));

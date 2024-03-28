@@ -14,7 +14,7 @@ const Ratings = (props) => {
   return <div>{allRatings}</div>;
 };
 
-class OMDbApi extends Component {
+class MovieAPI extends Component {
   state = {
     movieData: [],
   };
@@ -49,4 +49,4 @@ class OMDbApi extends Component {
   }
 }
 
-export default OMDbApi;
+export default MovieAPI;
