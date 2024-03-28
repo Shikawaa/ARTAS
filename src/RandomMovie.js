@@ -125,6 +125,7 @@ const MovieSelector = () => {
       {MovieData && (
         <div>
           <h2>Titre: {MovieData.Title}</h2>
+          <h2>Poster:</h2> <img src={MovieData.Poster} />
           <p>Réalisateur: {MovieData.Director}</p>
           <p>Durée: {MovieData.Runtime}</p>
           <p>Année de Sortie: {MovieData.Year}</p>
