@@ -110,6 +110,7 @@ export default function AnswerInput() {
     setInput(title);
     input = title;
     console.log("return: ", input);
+    return input;
   }
 
   return (

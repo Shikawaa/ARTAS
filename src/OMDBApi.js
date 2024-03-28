@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import AnswerInput from "./AnswerInput";
+
 const { API_KEY } = require("./config.json");
 
 const Ratings = (props) => {
@@ -26,7 +28,7 @@ class OmdbApi extends Component {
   };
 
   componentDidMount() {
-    let url = "http://www.omdbapi.com/?i=tt3896198&apikey=" + API_KEY;
+    let url = "http://www.omdbapi.com/?i=tt0110357&apikey=" + API_KEY;
     fetch(url)
       .then((result) => result.json())
       .then((result) => {
@@ -83,8 +85,20 @@ class OmdbApi extends Component {
       indiceRuntime,
     } = this.state;
 
+    function isCorrect(AnswerInput) {
+      if (AnswerInput == movieData.Title) {
+        return "Vrai";
+      } else if (AnswerInput == 0) {
+        return "pas d'input";
+      } else {
+        return "Faux";
+      }
+    }
+    console.log(isCorrect());
+    let i = 0;
+
     let indiceDirectorText;
-    if (indiceDirector) {
+    if (isCorrect == "Faux") {
       indiceDirectorText = (
         <div>Ce film a été réalisé par {movieData.Director}</div>
       );
@@ -136,22 +150,17 @@ class OmdbApi extends Component {
         <body>Ce film est sorti le {movieData.Released}</body>
 
         {indiceDirectorText}
-        <button onClick={this.showIndiceDirector}>Afficher indice 1</button>
 
         {indiceActorsText}
-        <button onClick={this.showIndiceActors}>Afficher indice 2</button>
 
         {indiceAwardsText}
-        <button onClick={this.showIndiceAwards}>Afficher indice 3</button>
 
         {indiceGenreText}
-        <button onClick={this.showIndiceGenre}>Afficher indice 4</button>
 
         {indiceRatingsText}
-        <button onClick={this.showIndiceRatings}>Afficher indice 5</button>
 
         {indiceRuntimeText}
-        <button onClick={this.showIndiceRuntime}>Afficher indice 6</button>
+        <AnswerInput></AnswerInput>
       </div>
     );
   }
