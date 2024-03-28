@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./AnswerInput.css";
 
 const debugList = [
   { code: "tt0111161", title: "The Shawshank Redemption" },
@@ -91,7 +92,7 @@ const debugList = [
 ];
 
 export default function AnswerInput() {
-  const [input, setInput] = useState("");
+  var [input, setInput] = useState("");
 
   const filteredMovies = debugList.filter(({ title }) =>
     title.toLowerCase().includes(input.toLowerCase())
@@ -99,28 +100,51 @@ export default function AnswerInput() {
 
   function onSubmit(e) {
     e.preventDefault();
-    console.log("input : ", input);
+    console.log("input: ", input);
+    console.log("return: ", input);
     return input;
   }
 
+  function select(title) {
+    console.log("selected:", title);
+    setInput(title);
+    input = title;
+    console.log("return: ", input);
+  }
+
   return (
-    <div>
-      <form onSubmit={onSubmit}>
-        Search:
-        <input
-          type="search"
-          placeholder="Type to search..."
-          value={input}
-          onChange={(e) => setInput(e.target.value)}
-        />
-        <button type="submit">Search</button>
+    <div className="global">
+      <form className="form" onSubmit={onSubmit}>
+        <span className="title">So, what's the movie ?</span>{" "}
+        <div className="searchcomponent">
+          <div className="searchbar">
+            <input
+              className="search"
+              placeholder="Type to search..."
+              id="input"
+              value={input}
+              onChange={(e) => setInput(e.target.value)}
+            />
+            {input && (
+              <div className="searchResults">
+                <h3>Items:</h3>
+                <div className="titles">
+                  {filteredMovies.map(({ code, title }) => (
+                    <div
+                      onClick={() => select(title)}
+                      className="title"
+                      key={code}
+                    >
+                      {title}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+          <button type="submit">Search</button>
+        </div>
       </form>
-      <h3>Items:</h3>
-      <div>
-        {filteredMovies.map(({ code, title }) => (
-          <div key={code}>{title}</div>
-        ))}
-      </div>
     </div>
   );
 }
