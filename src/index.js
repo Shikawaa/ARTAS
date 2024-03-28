@@ -1,5 +1,5 @@
 import React from "react";
-import ReactDOM from "react-dom";
-import AnswerInput from "./AnswerInput";
+import ReactDOM from "react-dom/client";
+import MovieSelector from "./RandomMovie";
 
-ReactDOM.render(<AnswerInput />, document.getElementById("root"));
+ReactDOM.createRoot(document.getElementById("root")).render(<MovieSelector />);
