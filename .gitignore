@@ -25,5 +25,9 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
+<<<<<<< HEAD
 config.json
 >>>>>>> 4ee90ef909464dc8c63751686245e2cb67ec8e66
+=======
+config.json
+>>>>>>> 008eb909226a9a3d7fc40d6d60278ce7799e25ec
