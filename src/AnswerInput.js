@@ -142,7 +142,7 @@ export default function AnswerInput() {
               </div>
             )}
           </div>
-          <button type="submit">Search</button>
+          <button type="submit">submit</button>
         </div>
       </form>
     </div>
