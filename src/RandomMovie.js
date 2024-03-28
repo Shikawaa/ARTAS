@@ -103,7 +103,7 @@ const MovieSelector = () => {
     "tt0103064", // Terminator 2: Judgment Day
   ];
 
-  const [MovieData, setMovieData] = useState(null);
+  var [MovieData, setMovieData] = useState(null);
 
   const selectRandomMovie = async () => {
     try {
@@ -115,26 +115,12 @@ const MovieSelector = () => {
       const MovieData = await Response.json();
 
       setMovieData(MovieData);
+      MovieData = 
     } catch (error) {
       console.error("Error fetching data:", error);
     }
   };
-  return (
-    <div>
-      <button onClick={selectRandomMovie}>Choisir un film aléatoire</button>
-      {MovieData && (
-        <div>
-          <h2>Titre: {MovieData.Title}</h2>
-          <h2>Poster:</h2> <img src={MovieData.Poster} />
-          <p>Réalisateur: {MovieData.Director}</p>
-          <p>Durée: {MovieData.Runtime}</p>
-          <p>Année de Sortie: {MovieData.Year}</p>
-          <p>Pays d'origine: {MovieData.Country}</p>
-          <p>Acteurs: {MovieData.Actors}</p>
-        </div>
-      )}
-    </div>
-  );
+  return MovieData;
 };
 
 export default MovieSelector;

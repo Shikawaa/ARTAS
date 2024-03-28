@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import MovieSelector from "./RandomMovie";
+
 const { API_KEY } = require("./config.json");
 
 const Ratings = (props) => {
@@ -14,9 +16,10 @@ const Ratings = (props) => {
   return <div>{allRatings}</div>;
 };
 
+console.log("Test" + MovieSelector);
 class OmdbApi extends Component {
   state = {
-    movieData: [],
+    movieData: MovieSelector,
     indiceDirector: false,
     indiceRatings: false,
     indiceGenre: false,
@@ -24,17 +27,6 @@ class OmdbApi extends Component {
     indiceRuntime: false,
     indiceAwards: false,
   };
-
-  componentDidMount() {
-    let url = "http://www.omdbapi.com/?i=tt3896198&apikey=" + API_KEY;
-    fetch(url)
-      .then((result) => result.json())
-      .then((result) => {
-        this.setState({
-          movieData: result,
-        });
-      });
-  }
 
   showIndiceDirector = () => {
     this.setState({
